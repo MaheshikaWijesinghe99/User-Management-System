@@ -47,4 +47,10 @@ router.post('/login', async (req, res) => {
     res.json({ token });
 });
 
+router.get('/users', async (req, res) => {
+    const users = await User.find().select('-password');
+    res.json(users);
+});
+
+
 module.exports = router;
